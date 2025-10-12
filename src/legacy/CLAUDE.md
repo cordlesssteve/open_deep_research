@@ -1,94 +1,63 @@
-# Open Deep Research
+# Project CLAUDE.md
 
-## About Open Deep Research
+## ═══════════════════════════════════════════════════════
+## GLOBAL CONFIGURATION (Auto-Inherited - Do Not Edit Here)
+## ═══════════════════════════════════════════════════════
+## These are imported from ~/.claude/config/*
+## To update global behavior, edit those files directly
+## Changes will automatically apply to all projects using this template
+##
+## NOTE: Using tilde paths (~/.claude/...) works across all project locations
+## Alternative formats: relative (@../../../.claude/...) or absolute (@/home/user/...)
 
-Open Deep Research is an experimental, fully open-source research assistant that automates deep research and produces comprehensive reports on any topic. It's designed to help researchers, analysts, and curious individuals generate detailed, well-sourced reports without manual research overhead.
+@~/.claude/config/intellectual-honesty.md
+@~/.claude/config/verification-protocols.md
+@~/.claude/config/file-organization.md
+@~/.claude/config/backup-systems.md
+@~/.claude/config/mcp-discovery-protocol.md
 
-### Key Features
-- **Automated Research**: Searches multiple sources (web, academic papers, specialized databases)
-- **Comprehensive Reports**: Generates structured markdown reports with proper citations
-- **Multiple Search APIs**: Supports Tavily, Perplexity, Exa, ArXiv, PubMed, DuckDuckGo, and more
-- **Flexible Models**: Compatible with any LLM that supports the `init_chat_model()` API
-- **Quality Evaluation**: Built-in evaluation systems to assess report quality
+## ═══════════════════════════════════════════════════════
+## PROJECT-SPECIFIC CONFIGURATION
+## ═══════════════════════════════════════════════════════
+## Edit below this line for project-specific instructions
 
-## Two Research Implementations
+## Project Context
+- **Name:** [Project Name]
+- **Type:** [Web App / CLI Tool / Game / Library / MCP Server / etc.]
+- **Status:** [Active / Archived / Prototype / Paused]
+- **Tech Stack:** [Languages, frameworks, tools]
+- **Repository:** [Git repo URL if applicable]
 
-Open Deep Research offers two distinct approaches to automated research, each with unique advantages:
+## 🚨 MANDATORY READING ORDER 🚨
+Before starting ANY development work, Claude MUST read these files in order:
 
-### 1. Graph-based Workflow Implementation
+1. **CURRENT_STATUS.md** - Current reality and what's actually done
+2. **ACTIVE_PLAN.md** - What we're currently executing (if exists)
+3. Only then reference other documentation for context
 
-The **graph-based implementation** (`src/open_deep_research/graph.py`) follows a structured plan-and-execute workflow:
+## Project-Specific Guidelines
 
-**Characteristics:**
-- **Interactive Planning**: Uses a planner model to generate a structured report outline
-- **Human-in-the-Loop**: Allows review and feedback on the report plan before execution
-- **Sequential Process**: Creates sections one by one with reflection between iterations
-- **Quality Focus**: Emphasizes report accuracy and structure through iterative refinement
+### Directory Structure
+**Directory Tree:** Use `.directory_tree.txt` in project root for complete structure
+**NEVER regenerate directory tree** - read existing file to save context tokens
 
-**Best for:**
-- High-stakes research where accuracy is critical
-- Reports requiring specific structure or customization
-- Situations where you want control over the research process
-- Academic or professional research contexts
+### Development Workflow
+[Add project-specific development workflow here]
 
-### 2. Multi-Agent Implementation
+### Testing Requirements
+[Add project-specific testing requirements here]
 
-The **multi-agent implementation** (`src/open_deep_research/multi_agent.py`) uses a supervisor-researcher architecture:
+### Deployment Process
+[Add deployment instructions if applicable]
 
-**Characteristics:**
-- **Supervisor Agent**: Manages overall research process and assembles final report
-- **Parallel Research**: Multiple researcher agents work simultaneously on different sections
-- **Speed Optimized**: Significantly faster due to parallel processing
-- **Tool Specialization**: Each agent has specific tools for their role
+## Architecture Overview
+[Add architecture notes, key components, design decisions]
 
-**Best for:**
-- Quick research and rapid report generation
-- Exploratory research where speed matters
-- Situations with less need for human oversight
-- Business intelligence and market research
+## External Dependencies
+[List critical external services, APIs, databases]
 
-## Quality Evaluation
+## Common Tasks
+[Add frequently used commands, scripts, or procedures]
 
-This guide explains how to quickly test and evaluate the quality of reports generated by Open Deep Research using the pytest evaluation system. The pytest evaluation system provides an easy way to:
-- Test both research agent implementations (multi-agent and graph-based)
-- Get immediate visual feedback with rich console output
-- Verify report quality against 9 comprehensive criteria
-- Compare different model configurations
-- Track results in LangSmith for analysis
-
-### Test Specific Agent
-```bash
-# Test only the multi-agent implementation
-python tests/run_test.py --agent multi_agent
-
-# Test only the graph-based implementation  
-python tests/run_test.py --agent graph
-```
-
-## Understanding the Output
-
-### Console Output
-The evaluation provides rich visual feedback including:
-
-1. **Test Configuration Panel**: Shows which agent and search API are being tested
-2. **Model Configuration Table**: Displays all model settings in a formatted table
-3. **Report Generation Status**: Real-time feedback during report creation
-4. **Generated Report Display**: Full report rendered in markdown format
-5. **Evaluation Results**: 
-   - **PASSED/FAILED** status in color-coded panel
-   - **Report Structure Analysis**: Table showing section headers
-   - **Evaluation Justification**: Detailed explanation from the evaluator
-
-### What Gets Evaluated
-
-The system checks reports against 9 quality criteria:
-
-1. **Topic Relevance (Overall)**: Does the report address the input topic thoroughly?
-2. **Section Relevance (Critical)**: Are all sections directly relevant to the main topic?
-3. **Structure and Flow**: Do sections flow logically and create a cohesive narrative?
-4. **Introduction Quality**: Does the introduction provide context and scope?
-5. **Conclusion Quality**: Does the conclusion summarize key findings?
-6. **Structural Elements**: Proper use of tables, lists, etc.
-7. **Section Headers**: Correct Markdown formatting (# for title, ## for sections)
-8. **Citations**: Proper source citation in each main body section
-9. **Overall Quality**: Well-researched, accurate, and professionally written
+## Known Issues / Gotchas
+[Document any quirks, workarounds, or things to watch out for]
